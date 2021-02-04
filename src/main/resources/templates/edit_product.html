@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Product Editor</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Dosis');
+
+    * {
+    	font-family: 'Dosis', sans-serif;
+    	transition: all 2.5s ease;
+    }
+
+    :root{
+    	--height: 3em;
+    	--bgr: rgb(64, 64, 64);
+    }
+
+        body {
+    	justify-content: center;
+    	align-items: center;
+    	height: 100vh;
+    	overflow: hidden;
+    	background: linear-gradient(to bottom right, white, blue);
+    }
+
+    .button7 {
+      align-items: center;
+      font-weight: 100;
+      color: white;
+      text-decoration: none;
+      padding: .8em 1em calc(.8em + 3px);
+      border-radius: 3px;
+      background: rgb(64,199,129);
+      box-shadow: 0 -3px rgb(53,167,110) inset;
+      transition: 0.2s;
+    }
+    .button7:hover { background: rgb(53, 167, 110); }
+    .button7:active {
+      background: rgb(33,147,90);
+      box-shadow: 0 3px rgb(33,147,90) inset;
+    }
+</style>
+<body>
+<div align="center">
+    <h1>Product Editor</h1>
+    <br/>
+    <form  action="#" th:action="@{/save}" th:object="${product}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Product ID</td>
+                <td><input type="text" th:field="*{id}" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td>Product Name:</td>
+                <td><input type="text" th:field="*{name}" /></td>
+            </tr>
+            <tr>
+                <td>Brand:</td>
+                <td><input type="text" th:field="*{brand}" /></td>
+            </tr>
+            <tr>
+                <td>Made In:</td>
+                <td><input type="text" th:field="*{madeIn}" /></td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td><input type="text" th:field="*{price}" /></td>
+            </tr>
+            <tr>
+                <td class="button7" ><button type="submit">Edit</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div>
+    <form action="#" th:action="@{/save}" th:object="${product}"
+          method="post">
+        <a><button class="button7" type="submit">Edit</button></a>
+
+    </form>
+</div>
+</body>
+</html>
